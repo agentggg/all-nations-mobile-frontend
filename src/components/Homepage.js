@@ -101,8 +101,8 @@ const randomVerseSelection = async()=>{
             <Card.Title style={styles.cardTitle}>Map</Card.Title>
             <Pressable onPress={() => console.log("text")}><Text style={styles.fireTrackerPressable}>Fire Tracker</Text></Pressable>
           </Card>
-          <Card containerStyle={{ borderColor: '#332D2D', borderWidth: '4%' }}>
-            <ResponsiveImage source={firetracker} initWidth="300" initHeight="238"/>
+          <Card containerStyle={{ borderColor: '#000000', borderWidth: '4%' }}>
+            <ResponsiveImage source={data} initWidth="300" initHeight="238"/>
             <Card.Title style={styles.cardTitle}>Database Management</Card.Title>
             <Pressable onPress={() => console.log("text")}><Text style={styles.dataPressable}>Admin</Text></Pressable>
           </Card>
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
    dataPressable:{
     textAlign: 'center',
     padding: '3%',
-    borderWidth: "3%", borderColor: "#332D2D", backgroundColor: '#332D2D',
-    color: 'black', fontSize: '20%',
+    borderWidth: "3%", borderColor: "#000000", backgroundColor: '#000000',
+    color: 'white', fontSize: '20%',
     marginTop: '5%'
    },
   cardTitle:{
