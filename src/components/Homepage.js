@@ -14,7 +14,7 @@ import text from '../assets/send_text.jpg';
 import register from '../assets/register.jpg';
 import outreach_Logo from '../assets/2535_black.jpg';
 import firetracker from '../assets/firetracker.png';
-import data from '../assets/data.png';
+import admin from '../assets/admin.png';
 
 
 const Homepage = ({navigation}) => {
@@ -75,41 +75,39 @@ const randomVerseSelection = async()=>{
   
   return (    
     <SafeAreaView style={styles.container}>
-    <ScrollView>
-        <Text style={styles.greeter}>Welcome {name} from {org}</Text>
-        <ResponsiveImage style={styles.homePageImage} source={homePageImage} initWidth="355" initHeight="385"/>
-        <Text style={styles.randomVerseSelection}>{defaultVerse}</Text>
-        <Pressable onPress={() => randomVerseSelection()}><Text style={styles.randomVerseButton}>Show a new verse</Text></Pressable>
-        <View style={styles.cardGroup}>
-          <Card containerStyle={{ borderColor: '#3B71CA', borderWidth: '4%' }}>
-            <ResponsiveImage source={register} initWidth="300" initHeight="238"/>
-            <Card.Title style={styles.cardTitle}>Register New Connections</Card.Title>
-            <Pressable onPress={() => console.log("register")}><Text style={styles.registerPressable}>Register</Text></Pressable>
-          </Card>
-          <Card containerStyle={{ borderColor: '#14A44D', borderWidth: '4%' }}>
-            <ResponsiveImage source={text} initWidth="300" initHeight="238"/>
-            <Card.Title style={styles.cardTitle}>Compose Message To Send</Card.Title>
-            <Pressable onPress={() => console.log("text")}><Text style={styles.textPressable}>Compose Message</Text></Pressable>
-          </Card>
-          <Card containerStyle={{ borderColor: '#DC4C64', borderWidth: '4%' }}>
-            <ResponsiveImage source={outreach_Logo} initWidth="300" initHeight="238"/>
-            <Card.Title style={styles.cardTitle}>Outreach Registration Form</Card.Title>
-            <Pressable onPress={() => console.log("text")}><Text style={styles.outreachPressable}>Outreach Update</Text></Pressable>
-          </Card>
-          <Card containerStyle={{ borderColor: '#E4A11B', borderWidth: '4%' }}>
-            <ResponsiveImage source={firetracker} initWidth="300" initHeight="238"/>
-            <Card.Title style={styles.cardTitle}>Map</Card.Title>
-            <Pressable onPress={() => console.log("text")}><Text style={styles.fireTrackerPressable}>Fire Tracker</Text></Pressable>
-          </Card>
-          <Card containerStyle={{ borderColor: '#000000', borderWidth: '4%' }}>
-            <ResponsiveImage source={data} initWidth="300" initHeight="238"/>
-            <Card.Title style={styles.cardTitle}>Database Management</Card.Title>
-            <Pressable onPress={() => console.log("text")}><Text style={styles.dataPressable}>Admin</Text></Pressable>
-          </Card>
-        </View>
-        </ScrollView>
+      <ScrollView>
+          <Text style={styles.greeter}>Welcome {name} from {org}</Text>
+          <ResponsiveImage style={styles.homePageImage} source={homePageImage} initWidth="355" initHeight="385"/>
+          <Text style={styles.randomVerseSelection}>{defaultVerse}</Text>
+          <Pressable onPress={() => randomVerseSelection()}><Text style={styles.randomVerseButton}>Show a new verse</Text></Pressable>
+          <View>
+            <View style={styles.cardGroup}>
+              <ResponsiveImage source={register} initWidth="360" initHeight="238" style={styles.registerImage}/>
+            </View>
+            <Pressable onPress={() => navigation.navigate('Register')}><Text style={styles.registerPressable}>Register</Text></Pressable>
 
-      </SafeAreaView>
+            <View style={styles.cardGroup}>
+              <ResponsiveImage source={text} initWidth="365" initHeight="238" style={styles.textImage}/>
+            </View>
+            <Pressable onPress={() => console.log("text")}><Text style={styles.textPressable}>Compose Message</Text></Pressable>
+
+            <View style={styles.cardGroup}>
+              <ResponsiveImage source={outreach_Logo} initWidth="365" initHeight="238" style={styles.outreachImage}/>
+            </View>
+            <Pressable onPress={() => navigation.navigate("OutreachUpdate")}><Text style={styles.outreachPressable}>Outreach Update</Text></Pressable>
+
+            <View style={styles.cardGroup}>
+              <ResponsiveImage source={firetracker} initWidth="365" initHeight="238" style={styles.fireTrackerImage}/>
+            </View>
+            <Pressable onPress={() => console.log("text")}><Text style={styles.fireTrackerPressable}>Fire Tracker</Text></Pressable>
+
+            <View style={styles.cardGroup}>
+              <ResponsiveImage source={admin} initWidth="365" initHeight="238" style={styles.adminImage}/>
+            </View>
+            <Pressable onPress={() => console.log("text")}><Text style={styles.adminPressable}>Admin</Text></Pressable> 
+          </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
@@ -120,7 +118,14 @@ const styles = StyleSheet.create({
     height: '100%',
     flex: 1,
     marginLeft: '3%',
-    marginRight: '3%'
+    marginRight: '3%',
+    justifyContent: 'space-between', alignContent:'center'
+  },
+  greeter:{
+    textAlign: 'center',
+    alignItems: 'center',
+    fontSize: '25%',
+    fontWeight: '900',
   },
   randomVerseSelection:{
     textAlign: 'center',
@@ -129,92 +134,74 @@ const styles = StyleSheet.create({
     fontSize: '20%',
     fontWeight: '500',
   },
-  greeter:{
+  randomVerseButton:{
     textAlign: 'center',
-    alignItems: 'center',
-    fontSize: '20%',
-    fontWeight: '800',
+    padding: '3%',
+    borderWidth: "3%", backgroundColor: 'white', borderColor: 'black',
+    color: 'black', fontSize: '20%',
+    marginBottom: '5%', marginTop: '10%',
   },
   cardGroup:{
-    justifyContent: 'space-between',
+    borderWidth: "3%", borderColor: '#34090C'
   },
   registerPressable:{
     textAlign: 'center',
     padding: '3%',
-    borderWidth: "3%", borderColor: "#0d6efd", backgroundColor: '#0d6efd',
+    borderWidth: "3%", borderColor: '#34090C', backgroundColor: '#34090C',
     color: 'white', fontSize: '20%',
-    marginTop: '5%'
-   },
-   textPressable:{
+    marginBottom: '5%'
+  },
+  textPressable:{
     textAlign: 'center',
     padding: '3%',
-    borderWidth: "3%", borderColor: "#14A44D", backgroundColor: '#14A44D',
+    borderWidth: "3%", borderColor: '#34090C', backgroundColor: '#34090C',
     color: 'white', fontSize: '20%',
-    marginTop: '5%'
-   },
-   outreachPressable:{
+    marginBottom: '5%'
+  },
+  outreachPressable:{
     textAlign: 'center',
     padding: '3%',
-    borderWidth: "3%", borderColor: "#DC4C64", backgroundColor: '#DC4C64',
+    borderWidth: "3%", borderColor: '#34090C', backgroundColor: '#34090C',
     color: 'white', fontSize: '20%',
-    marginTop: '5%'
-   },
-   fireTrackerPressable:{
+    marginBottom: '5%'
+  },
+  fireTrackerPressable:{
     textAlign: 'center',
     padding: '3%',
-    borderWidth: "3%", borderColor: "#E4A11B", backgroundColor: '#E4A11B',
+    borderWidth: "3%", borderColor: '#34090C', backgroundColor: '#34090C',
+    color: 'white', fontSize: '20%',
+    marginBottom: '5%'
+  },
+  adminPressable:{
+    textAlign: 'center',
+    padding: '3%',
+    borderWidth: "3%", borderColor: '#34090C', backgroundColor: '#34090C',
+    color: 'white', fontSize: '20%',
+    marginBottom: '5%'
+  },
+  registerImage:{
+    alignItems: 'center', justifyContent: 'center', alignContent: 'center',
+    color: 'white', fontSize: '20%',
+    marginBottom: '8%'
+  },
+  textImage:{
+    alignItems: 'center', justifyContent: 'center', alignContent: 'center',
+    color: 'white', fontSize: '20%',
+    marginBottom: '8%'
+  },
+  outreachImage:{
+    textAlign: 'center',
+    color: 'white', fontSize: '20%',
+    marginBottom: '8%'
+  },
+  fireTrackerImage:{
+    textAlign: 'center',
     color: 'black', fontSize: '20%',
-    marginTop: '5%'
-   },
-   dataPressable:{
+    marginBottom: '8%'
+  },
+  adminImage:{
     textAlign: 'center',
-    padding: '3%',
-    borderWidth: "3%", borderColor: "#000000", backgroundColor: '#000000',
     color: 'white', fontSize: '20%',
-    marginTop: '5%'
-   },
-  cardTitle:{
-    fontSize: '20%',
-    paddingTop: '5%',
-  },
-  randomVerseButton:{
-    textAlign: 'center',
-    padding: '3%',
-    borderWidth: "3%", borderColor: "#20232a", backgroundColor: 'black',
-    color: 'white', fontSize: '20%',
-    marginTop: '5%'
-  },
-  fullSectionPressable:{
-    fontSize: '30%', fontWeight:'500',
-    width: '100%',
-    paddingLeft:'10%', paddingRight: '10%', paddingTop: '10%', paddingBottom: '10%',
-    borderRadius: '20%'
-  },
-  fullSectionWord:{
-    fontWeight:'900',
-    color: 'white', 
-    fontSize: '30%',
-    borderRadius: '20',
-  },
-  loadingData:{
-    alignContent: 'center',
-    justifyContent: 'center',
-    margin: '20%',
-    fontWeight:'900',
-    color: 'black', 
-    fontSize: '30%',
-    borderRadius: '20',
-  },
-  notificaitionGroup:{
-    flexDirection: 'row',
-    marginLeft: 'auto',
-    marginRight: 0,
-    paddingRight:'5%'
-
-  },
-  notificaitionNumber:{
-    fontSize: '20%',
-    fontWeight: '500',
-    color: 'white',
-  },
+    marginBottom: '8%'
+  }
 })
